@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Реферальная программа</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js" type="application/javascript"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <h1>Реферальная программа</h1>
+  <p id="account">Аккаунт: </p>
+  <p id="bonusDisplay">Бонусы: 0</p>
+  <input type="text" id="referrer" placeholder="Адрес реферера" />
+  <button onclick="register()">Зарегистрироваться</button>
+  <button onclick="getReferrers()">Показать рефералов</button>
+  <button onclick="showBonus()">Показать бонус</button>
+
+  <p id="referrers"></p>
+  
+</body>
+</html>
+

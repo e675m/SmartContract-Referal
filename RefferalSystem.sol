@@ -16,6 +16,8 @@ contract ReferralProgram is ERC20, Ownable {
     constructor() ERC20("ReferralToken", "RFT") Ownable(msg.sender) {
         _mint(msg.sender, 10000 * (10 ** decimals())); 
         priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+        registered[msg.sender] = true;
+        emit Registered(msg.sender, address(0)); 
     }
 
     event Registered(address indexed user, address indexed referrer);

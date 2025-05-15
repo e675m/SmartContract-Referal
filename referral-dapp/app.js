@@ -1,30 +1,5 @@
-
-const contractAddress = "0xDf73256971cd49f229f24d41b20E5b8339593E1a"; заменить тк последняя версия контракта пока что не была верефицирована 
+const contractAddress = "0x7EE59366FF544A4f87d954b57Cd22fF1c2b4EBFE"; 
 const contractABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -183,19 +158,6 @@ const contractABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "referrer",
-				"type": "address"
-			}
-		],
-		"name": "register",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -213,44 +175,6 @@ const contractABI = [
 		],
 		"name": "Registered",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "registerSolo",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -276,48 +200,6 @@ const contractABI = [
 		],
 		"name": "Transfer",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -360,6 +242,30 @@ const contractABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -459,6 +365,25 @@ const contractABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "getRef",
+		"outputs": [
+			{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "getReferrers",
 		"outputs": [
@@ -525,6 +450,26 @@ const contractABI = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "referrer",
+				"type": "address"
+			}
+		],
+		"name": "register",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "registerSolo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -538,6 +483,13 @@ const contractABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -565,45 +517,174 @@ const contractABI = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ];
 
-  let provider, signer, contract, account;
+let provider, signer, contract, account;
 
 async function connect() {
-  if (window.ethereum) {
-    await window.ethereum.request({ method: "eth_requestAccounts" });
-    provider = new ethers.providers.Web3Provider(window.ethereum);
-    signer = provider.getSigner();
-    account = await signer.getAddress();
-    document.getElementById("userAddress").innerText = account;
+	if (window.ethereum) {
+		window.ethereum.on("accountsChanged", () => {
+			location.reload(true);
+		});
+		await window.ethereum.request({ method: "eth_requestAccounts" });
+		provider = new ethers.providers.Web3Provider(window.ethereum);
+		signer = provider.getSigner();
+		account = await signer.getAddress();
+		document.getElementById("userAddress").innerText = account;
 
-    contract = new ethers.Contract(contractAddress, contractABI, signer);
-	
+		contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-	const ownerAddress = await contract.owner();
-	
-	if(account.toLowerCase() === ownerAddress.toLowerCase()) {
-		const adminHTML = `
-        <div id="adminPanel" class="card p-3 mb-4">
-          <h4>Админ-панель</h4>
-          <button class="btn btn-danger" onclick="someAdminAction()">Действие</button>
-        </div>
-      `;
-      document.getElementById("adminContainer").innerHTML = adminHTML;
+		const ownerAddress = await contract.owner();
+		
+		if(account.toLowerCase() === ownerAddress.toLowerCase()) {
+			const adminHTML = `
+				<div id="adminPanel" class="card p-3 mb-4">
+					<h4>Админ-панель</h4>
+
+					<hr>
+					<h5>Получить рефералов пользователя</h5>
+					<input type="text" id="target-user-address" class="form-control mb-2" placeholder="Адрес пользователя">
+					<button class="btn btn-info mb-2" id="get-ref-btn">Показать рефералов</button>
+					<div id="user-referrals-result"></div>
+
+					<hr>
+					<h5>Получить бонусы пользователя</h5>
+					<input type="text" id="bonus-user-address" class="form-control mb-2" placeholder="Адрес пользователя">
+					<button class="btn btn-success mb-2" id="get-bonus-btn">Показать бонус</button>
+					<div id="user-bonus-result"></div>
+				</div>
+			`;
+			document.getElementById("adminContainer").innerHTML = adminHTML;
+
+			document.getElementById("get-ref-btn").addEventListener("click", async () => {
+				const address = document.getElementById("target-user-address").value.trim();
+				const resultDiv = document.getElementById("user-referrals-result");
+				resultDiv.innerHTML = "";
+
+				if (!ethers.utils.isAddress(address)) {
+					resultDiv.innerHTML = `<div class="text-danger">Неверный адрес</div>`;
+					return;
+				}
+
+				try {
+					const referrals = await contract.getRef(address);
+
+					if (referrals.length === 0) {
+						resultDiv.innerHTML = `<div>У пользователя нет рефералов</div>`
+					} else {
+						const ul = document.createElement("ul");
+						referrals.forEach(ref => {
+							const li = document.createElement("li");
+							li.textContent = ref;
+							ul.appendChild(li);
+						});
+						resultDiv.appendChild(ul)
+					}
+				} catch (err) {
+					resultDiv.innerHTML = `<div class="text-danger">Ошибка: ${err.message}</div>`
+				}
+			});
+
+			document.getElementById("get-bonus-btn").addEventListener("click", async () => {
+				const address = document.getElementById("bonus-user-address").value.trim();	
+				const resultDiv = document.getElementById("user-bonus-result");
+				resultDiv.innerHTML = "";
+				
+				if(!ethers.utils.isAddress(address)) {
+					resultDiv.innerHTML = `<div class="text-danger">Неверный адрес ${address}</div>`;
+					return;
+				}
+
+				try {
+					const bonus = await contract.getBonus(address);
+					resultDiv.innerHTML = `<div>Бонусы: ${formatTokens(bonus.toString())} RFT</div>`;
+				} catch (err) {
+					resultDiv.innerHTML = `<div class="text-danger">Ошибка: ${err.message}</div>`;
+				}
+			});
+		}
+
+		const isRegistered = await contract.registered(account);
+		
+		if(!isRegistered){
+			document.getElementById("registrationBlock").classList.remove("d-none");
+		} else {
+			document.getElementById("registrationBlock").classList.add("d-none");
+			getMyBonus();
+			getMyReferrals();
+			showEthPrice();
+		}
+
+	} else {
+		alert("Metamask не найден");
 	}
-    
-	const isRegistered = await contract.registered(account);
-    if(!isRegistered){
-      document.getElementById("registrationBlock").classList.remove("d-none");
-    } else {
-      document.getElementById("registrationBlock").classList.add("d-none");
-      getMyBonus();
-      getMyReferrals();
-    }
-  } else {
-    alert("Metamask не найден");
-  }
 }
 
 async function register() {
@@ -612,7 +693,7 @@ async function register() {
     const tx = await contract.register(referrer);
     await tx.wait();
     document.getElementById("registerStatus").innerText = "✅ Регистрация успешна";
-	await connect;
+	await connect();
   } catch (err) {
     document.getElementById("registerStatus").innerText = "❌ Ошибка: " + err.message;
   }
@@ -623,32 +704,16 @@ async function selfRegister() {
     const tx = await contract.registerSolo();
     await tx.wait();
     document.getElementById("registerStatus").innerText = "✅ Регистрация без реферала успешна";
-	await connect;
+	await connect();
   } catch (err) {
     document.getElementById("registerStatus").innerText = "❌ Ошибка: " + err.message;
   }
 }
 
-async function checkUserBonus() {
-	const user = document.getElementById("userToCheck").value;
-	try {
-	  const bonus = await contract.getBonus(user);w
-	  document.getElementById("userBonus").innerText = formatTokens(bonus.toString());
-	} catch (error) {
-		const message = error?.data?.message || error?.message || "";
-		if (message.includes("User is not registered")) {
-		  alert("Пользователь не зарегистрирован");
-		} else {
-		  alert("Ошибка при получении бонуса: " + message);
-		}
-	}
-  }
-  
-
 async function getMyBonus() {
   try {
     const bonus = await contract.getMyBonus();
-    document.getElementById("bonusAmount").innerText = formatTokens(bonus.toString());
+    document.getElementById("bonusAmount").innerText = formatTokens(bonus.toString()) + " RFT";
   } catch (error) {
 	const message = error?.data?.message || error?.message || "";
 	if (message.includes("User is not registered")) {
@@ -664,6 +729,10 @@ async function getMyReferrals() {
     const referrals = await contract.getReferrers();
     const list = document.getElementById("referralList");
     list.innerHTML = "";
+	if (referrals.length === 0) {
+		list.innerHTML = `<div>У вас нет рефералов</div>`;
+		return;
+	}
     referrals.forEach(addr => {
       const li = document.createElement("li");
       li.textContent = addr;
@@ -675,18 +744,19 @@ async function getMyReferrals() {
 }
 
 function formatTokens(value, decimals = 18) {
-  return (Number(value) / 10 ** decimals).toFixed(4);
+	return ethers.utils.formatUnits(value, decimals);
 }
 
 async function showEthPrice() {
-  try {
-    const price = await contract.getLastPrice(); // возвращает int, но в wei (8 знаков)
-    const ethUsd = Number(price.toString()) / 10 ** 8;
-    document.getElementById("ethPrice").innerText = ethUsd.toFixed(2);
+	try {
+		const price = await contract.getLastPrice();
+		const ethUsd = Number(price.toString()) / 10 ** 8;
+		document.getElementById("ethPrice").innerText = ethUsd.toFixed(2);
 
-    const reward = ethUsd / 10; // 1/10 от курса
-    document.getElementById("expectedBonus").innerText = reward.toFixed(2);
-  } catch (err) {
-    alert("Ошибка при получении курса ETH: " + err.message);
-  }
+		const reward = ethUsd / 10;
+		document.getElementById("referrerBonus").innerText = (reward * 0.7).toFixed(2);
+		document.getElementById("referralBonus").innerText = (reward * 0.3).toFixed(2);
+	} catch (err) {
+		alert("Ошибка при получении курса ETH: " + err.message);
+	}
 }

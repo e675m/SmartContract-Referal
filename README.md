@@ -11,6 +11,7 @@
 - **Chainlink Price Feed** (ETH/USD)
 - **ethers.js**
 - **HTML + Bootstrap 5**
+- -**JavaScript**
 - **MetaMask**
 
 ---

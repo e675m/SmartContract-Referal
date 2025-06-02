@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тест реферального скрипта</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <h1>Тест реферальной системы</h1>
+
+  <form id="refForm" onsubmit="handleSubmit(event)">
+    <!-- Блок Google reCAPTCHA -->
+    <div class="g-recaptcha"
+         data-sitekey="6LchqVMrAAAAAIbnF0wnNhnmVExVw6MR-iJsxFOF">
+    </div>
+
+    <br>
+    <button type="submit">Совершить действие (начислить бонус)</button>
+  </form>
+
+  <script>
+    function getReferral() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('ref');
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault(); // отменяем стандартную отправку формы
+
+      const ref = getReferral();
+      if (!ref) {
+        alert('Параметр ref отсутствует в URL');
+        return;
+      }
+
+      const token = grecaptcha.getResponse(); // получаем токен капчи
+
+      if (!token) {
+        alert('Пожалуйста, подтвердите капчу');
+        return;
+      }
+
+      fetch('https://151323.nl.web.highserver.ru/referral', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userAddress: ref, captcha: token })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Ответ от оракула: ' + JSON.stringify(data));
+        grecaptcha.reset(); // сбрасываем капчу после запроса
+      })
+      .catch(err => {
+        alert('Ошибка при запросе: ' + err);
+      });
+    }
+  </script>
+</body>
+</html>

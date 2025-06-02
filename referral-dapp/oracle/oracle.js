@@ -14,6 +14,7 @@ const corsOptions = {
   allowedHeaders: ["Content-Type"],
 };
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const INFURA_URL = process.env.INFURA_URL;
@@ -55,12 +56,12 @@ app.post("/referral", async (req, res) => {
     await tx.wait();
      res.json({ message: `Bonus send: ${tx.hash}` });
   } catch (err) {
-    console.error("РћС€РёР±РєР°:", err);
+    console.error("Ошибка:", err);
     res.status(500).json({ error: "Error" });
   }
 });
  
-console.log("Р“РѕС‚РѕРІ Рє Р·Р°РїСѓСЃРєСѓ СЃРµСЂРІРµСЂР°");
+console.log("Готов к запуску сервера");
 
 const PORT = 3000;
-app.listen(PORT, () => console.log(`РћСЂР°РєСѓР» СЃР»СѓС€Р°РµС‚ РЅР° РїРѕСЂС‚Сѓ ${PORT}`));
+app.listen(PORT, () => console.log(`Оракул слушает на порту ${PORT}`));

@@ -39,8 +39,12 @@
         alert('Пожалуйста, подтвердите капчу');
         return;
       }
+      
+      const btn = event.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Обработка...';
 
-      fetch('https://151323.nl.web.highserver.ru/referral', {
+      fetch('https://referraldapp.ru/referral', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userAddress: ref, captcha: token })
@@ -49,6 +53,8 @@
       .then(data => {
         alert('Ответ от оракула: ' + JSON.stringify(data));
         grecaptcha.reset(); // сбрасываем капчу после запроса
+        btn.disabled = false;
+        btn.textContent = 'Совершить действие (начислить бонус)';
       })
       .catch(err => {
         alert('Ошибка при запросе: ' + err);
